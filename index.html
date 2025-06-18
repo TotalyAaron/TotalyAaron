@@ -54,6 +54,7 @@
   document.getElementById("contact-form").addEventListener("submit", function(e) {
     e.preventDefault();
     emailjs.sendForm("service_8ven1i9", "template_5tf2mpb", this)
+      alert("Message being sent... please wait...")
       .then(function() {
         alert("Message sent successfully!");
         document.getElementById("contact-form").reset();
