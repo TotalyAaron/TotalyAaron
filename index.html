@@ -58,9 +58,7 @@
       window.location.href = "https://google.com";
       return;
     }
-
     emailjs.init("Y-jjjkJ8HzX65bGzV");
-
     document.getElementById("contact-form").addEventListener("submit", function (e) {
       e.preventDefault();
       alert("Message being sent... please wait...");
@@ -74,7 +72,6 @@
         });
     });
   };
-
   function turnGrey(button, otherButton) {
     const buttonActv = document.getElementById(button);
     const buttonNActv = document.getElementById(otherButton);
@@ -82,11 +79,12 @@
     buttonNActv.style.backgroundColor = "#FFFFFF";
   }
 </script>
+  <script src="js/switchPages.js"></script>
 </head>
 <body>
   <div class="top-bar">
     <button class="top-button" id="RequestTab" onclick="turnGrey('RequestTab', 'Inbox')">Request</button>
-    <button class="top-button" id="Inbox" onclick="turnGrey('Inbox', 'RequestTab')">Inbox</button>
+    <button class="top-button" id="Inbox" onclick="turnGrey('Inbox', 'RequestTab'); switchToInbox()">Inbox</button>
   </div>
   <h1>Request Code to Aaron</h1>
   <p>Use the form below to send a request.</p>
