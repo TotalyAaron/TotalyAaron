@@ -50,6 +50,11 @@
   <title>Request to Aaron</title>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
+  let isUsable = false;
+  if (!isUsable) {
+    alert("EmailJS servers currently unstable and unusable. Please retry later or wait until the servers are back online.");
+    window.location.href = "https://google.com";
+  }
   emailjs.init("Y-jjjkJ8HzX65bGzV");
   document.getElementById("contact-form").addEventListener("submit", function(e) {
     e.preventDefault();
