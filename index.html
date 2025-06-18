@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  body {
+    background-color: lightblue;
+    margin-top: 50px;
+  }
+  h1 {
+    font-family: verdana;
+    text-align: center;
+  }
+  p {
+    font-family: verdana;
+    font-size: 20px;
+  }
+  input[type="email"] {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #770077;
+    padding: 5px;
+    z-index: 1000;
+    text-align: left;
+  }
+  .top-button {
+    padding: 10px 20px;
+    font-size: 5px;
+    background-color: #FFFFFF;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-width: 5px;
+    border-radius: 7px
+  }
+  .top-button:hover {
+    background-color: #555555;
+  }
+  </style>
+  <title>Request to Aaron</title>
+</head>
+<body>
+  <div class="top-bar">
+    <button class="top-button" id="RequestTab" name="RequestTab" onclick="turnGrey('RequestTab', 'Inbox')">Request</button>
+    <button class="top-button" id="Inbox" name="Inbox" onclick="turnGrey('Inbox', 'RequestTab')">Inbox</button>
+  </div>
+  <h1>Request code to Aaron</h1>
+  <p>Request enter here:</p>
+  <label for="mail">Enter mail:</label>
+  <input type="email" id="mail" name="mail">
+  <label for="Request">Enter your request here.</label>
+  <input type="text" id="Request" name="Request">
+  <button id="RequestButton" onclick="displaySent('Request')">Send!</button>
+  <script>
+  function displaySent(text) {
+    let textEntered = document.getElementById(text).value;
+    let mailEntered = document.getElementById("mail").value;
+    if (textEntered != "") {
+      if (!(mailEntered.includes("@") || mailEntered.includes("#"))) {
+        alert("Invalid mail. Message was not sent.");
+        return;
+      }
+      alert("You entered: " + document.getElementById("Request").value + " has been sent to the server.");
+      textEntered = "";
+      document.getElementById("Request").value = textEntered;
+    } else {
+      alert("You entered nothing. Not sent.");
+    }
+  }
+  function turnGrey(button, otherButton) {
+    const buttonActv = document.getElementById(button)
+    const buttonNActv = document.getElementById(otherButton)
+    buttonActv.style.backgroundColor = "#777777"
+    buttonNActv.style.backgroundColor = "#FFFFFF"
+  }
+  </script>
+</body>
+</html>
